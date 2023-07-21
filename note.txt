@@ -1,0 +1,8 @@
+- Trong entity, không thể xuất ra các trường khóa ngoại, phải dùng:
+        findOne({where: {id: commentId}, relations: {postId: true, userId: true}});
+
+- Để sử dụng service của Module B trong service của Module A, ta phải import BModule trong
+    A.module.ts. Trong file A.service.ts, dùng: @Inject(BService)
+   
+- Để sử dụng Repository của Module B trong service A, ta cần @InjectRepository trong 
+        service A và add module B trong module A:  imports: [TypeOrmModule.forFeature([A, B])] 
